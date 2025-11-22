@@ -41,16 +41,15 @@ export default function GuestsPage() {
         fetchGuests();
     }, []);
 
-    const grantClipboardPermission = async () => {
-        try {
-            await navigator.permissions.query({ name: "clipboard-write" });
-        } catch (error) {
-            console.error("Error granting clipboard permission:", error);
-        }
-    };
+    // const grantNotificationPermission = async () => {
+    //     try {
+    //         await navigator.permissions.query({ name: "notifications" });
+    //     } catch (error) {
+    //         console.error("Error granting notification permission:", error);
+    //     }
+    // };
 
     const copyInviteLink = (inviteCode: string, guestId: string) => {
-        grantClipboardPermission();
         const link = `${baseUrl} /invite/${inviteCode} `;
         navigator.clipboard.writeText(link);
         setCopiedId(guestId);

@@ -35,7 +35,7 @@ import { RecordService } from 'pocketbase';
 
 // Initialize the PocketBase client
 // Use the provided URL or fallback to localhost for development if env var is missing (though we hardcode it here as requested)
-const pb = new PocketBase('https://party-pocketbase.ingriduzeda.com') as TypedPocketBase;
+const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL as string) as TypedPocketBase;
 
 // Disable auto-cancellation to avoid issues with React Strict Mode in dev
 pb.autoCancellation(false);
