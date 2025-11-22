@@ -50,7 +50,7 @@ export default function GuestsPage() {
     // };
 
     const copyInviteLink = (inviteCode: string, guestId: string) => {
-        const link = `${baseUrl} /invite/${inviteCode} `;
+        const link = `${baseUrl}/invite/${inviteCode}`;
         navigator.clipboard.writeText(link);
         setCopiedId(guestId);
         setTimeout(() => setCopiedId(null), 2000);

@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 import pb from '@/lib/pocketbase';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
 export const runtime = 'edge';
 
@@ -11,24 +13,40 @@ export async function GET(request: NextRequest) {
         // Get the invite code from URL parameter
         const code = searchParams.get('code');
 
-        let guestName = 'Convidado';
+        // If no code is provided, redirect to static card image
+        if (!code) {
+            const protocol = request.headers.get('x-forwarded-proto') || 'http';
+            const host = request.headers.get('host');
+            const fallbackUrl = `${protocol}://${host}/seo/og-image-card.png`;
 
-        // If code is provided, fetch the guest's first name from database
-        if (code) {
-            try {
-                const records = await pb.collection('guests').getList(1, 1, {
-                    filter: `invite_code = "${code}"`
-                });
-
-                if (records.items.length > 0) {
-                    guestName = records.items[0].first_name;
-                }
-            } catch (error) {
-                console.error('Error fetching guest for OG image:', error);
-                // Fall back to default name if fetch fails
-            }
+            return Response.redirect(fallbackUrl, 302);
         }
 
+        let guestName = null;
+
+        // Fetch the guest's first name from database
+        try {
+            const records = await pb.collection('guests').getList(1, 1, {
+                filter: `invite_code = "${code}"`
+            });
+
+            if (records.items.length > 0) {
+                guestName = records.items[0].first_name;
+            }
+        } catch (error) {
+            console.error('Error fetching guest for OG image:', error);
+        }
+
+        // If guest not found, redirect to static card image
+        if (!guestName) {
+            const protocol = request.headers.get('x-forwarded-proto') || 'http';
+            const host = request.headers.get('host');
+            const fallbackUrl = `${protocol}://${host}/seo/og-image-card.png`;
+
+            return Response.redirect(fallbackUrl, 302);
+        }
+
+        // Generate personalized image for valid guests
         // Load the cursive font (Great Vibes) from Google Fonts
         const fontData = await fetch(
             new URL('https://fonts.gstatic.com/s/greatvibes/v14/RWmMoKWR9v4ksMflq1L1x92dAH9h0Q.ttf', import.meta.url)
@@ -93,8 +111,18 @@ export async function GET(request: NextRequest) {
         );
     } catch (e: any) {
         console.error(`Error generating OG image: ${e.message}`);
-        return new Response(`Failed to generate the image`, {
-            status: 500,
-        });
+
+        // Fallback to static card image on error
+        try {
+            const protocol = request.headers.get('x-forwarded-proto') || 'http';
+            const host = request.headers.get('host');
+            const fallbackUrl = `${protocol}://${host}/seo/og-image-card.png`;
+
+            return Response.redirect(fallbackUrl, 302);
+        } catch {
+            return new Response(`Failed to generate the image`, {
+                status: 500,
+            });
+        }
     }
 }

@@ -16,6 +16,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Ingrid 20 Anos",
   description: "Venha comemorar os 20 anos da Ingrid!",
+  openGraph: {
+    title: "Ingrid 20 Anos",
+    description: "Venha comemorar os 20 anos da Ingrid!",
+    images: ['/seo/og-image-card.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Ingrid 20 Anos",
+    description: "Venha comemorar os 20 anos da Ingrid!",
+    images: ['/seo/og-image-card.png'],
+  },
 };
 
 export default function RootLayout({
