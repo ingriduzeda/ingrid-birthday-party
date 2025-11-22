@@ -13,19 +13,31 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://party.ingriduzeda.com";
+
 export const metadata: Metadata = {
   title: "Ingrid 20 Anos",
   description: "Venha comemorar os 20 anos da Ingrid!",
+  metadataBase: new URL(baseUrl),
   openGraph: {
     title: "Ingrid 20 Anos",
     description: "Venha comemorar os 20 anos da Ingrid!",
-    images: ['/seo/og-image-card.png'],
+    images: [
+      {
+        url: `${baseUrl}/seo/og-image-card.png`,
+        width: 1200,
+        height: 630,
+        alt: "Convite para festa de 20 anos da Ingrid",
+      },
+    ],
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: "Ingrid 20 Anos",
     description: "Venha comemorar os 20 anos da Ingrid!",
-    images: ['/seo/og-image-card.png'],
+    images: [`${baseUrl}/seo/og-image-card.png`],
   },
 };
 
