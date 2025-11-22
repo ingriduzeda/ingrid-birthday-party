@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
                 });
 
                 if (records.items.length > 0) {
-                    guestName = records.items[0].first_name || records.items[0].name.split(' ')[0];
+                    guestName = records.items[0].first_name;
                 }
             } catch (error) {
                 console.error('Error fetching guest for OG image:', error);

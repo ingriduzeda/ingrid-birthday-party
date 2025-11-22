@@ -33,7 +33,7 @@ export default function Footer() {
                     .filter((r: any) => r.message && r.message.trim().length > 0)
                     .map((r: any) => ({
                         id: r.id,
-                        name: r.name || "Convidado",
+                        name: r.first_name + " " + r.last_name || "Convidado",
                         message: r.message,
                     }));
 
