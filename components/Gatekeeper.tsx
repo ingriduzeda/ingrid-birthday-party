@@ -61,7 +61,7 @@ export default function Gatekeeper({ onUnlock }: GatekeeperProps) {
                 <motion.div
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-fuchsia-50 via-pink-50 to-purple-50"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50"
                 >
                     <div className="absolute inset-0 overflow-hidden">
                         {[...Array(20)].map((_, i) => (
@@ -88,15 +88,15 @@ export default function Gatekeeper({ onUnlock }: GatekeeperProps) {
                     </div>
 
                     <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
+                        initial={{ scale: 0.9 }}
+                        animate={{ scale: 1 }}
                         transition={{ duration: 0.5 }}
                         className="relative z-10 w-full max-w-md px-6"
                     >
-                        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-fuchsia-100">
+                        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-purple-100">
                             <div className="flex justify-center mb-6">
                                 <div className="relative">
-                                    <Lock className="w-16 h-16 text-fuchsia-500" />
+                                    <Lock className="w-16 h-16 text-purple-500" />
                                     <motion.div
                                         animate={{ rotate: 360 }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -107,7 +107,7 @@ export default function Gatekeeper({ onUnlock }: GatekeeperProps) {
                                 </div>
                             </div>
 
-                            <h1 className="text-3xl font-script text-center text-fuchsia-800 mb-2">
+                            <h1 className="text-3xl font-script text-center text-purple-800 mb-2">
                                 Bem-vindo!
                             </h1>
                             <p className="text-center text-gray-600 mb-6">
@@ -120,7 +120,7 @@ export default function Gatekeeper({ onUnlock }: GatekeeperProps) {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Digite a senha"
-                                    className="w-full px-4 py-3 rounded-xl border-2 border-fuchsia-200 focus:border-fuchsia-400 focus:outline-none transition-colors text-center text-lg"
+                                    className="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-purple-400 focus:outline-none transition-colors text-center text-lg"
                                     autoFocus
                                 />
 
@@ -136,7 +136,7 @@ export default function Gatekeeper({ onUnlock }: GatekeeperProps) {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white py-3 rounded-xl font-medium hover:from-fuchsia-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl"
+                                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-medium hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl"
                                 >
                                     Entrar
                                 </button>

@@ -40,4 +40,8 @@ const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL as string) as T
 // Disable auto-cancellation to avoid issues with React Strict Mode in dev
 pb.autoCancellation(false);
 
+if (process.env.NEXT_PUBLIC_POCKETBASE_TOKEN) {
+    pb.authStore.save(process.env.NEXT_PUBLIC_POCKETBASE_TOKEN, null);
+}
+
 export default pb;

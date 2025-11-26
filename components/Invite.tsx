@@ -1,23 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import { CalendarPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock } from "lucide-react";
 
 export default function Invite() {
     return (
-        <section id="invite" className="py-20 px-4 bg-fuchsia-50 flex justify-center items-center min-h-[60vh]">
-            <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+        <section id="invite" className="py-20 px-4 bg-purple-50 flex justify-center items-center min-h-[60vh]">
+            <div
                 className="max-w-3xl w-full"
             >
-                <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-fuchsia-100 flex flex-col md:flex-row">
+                <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-purple-100 flex flex-col md:flex-row">
                     {/* Left Side - Decorative */}
-                    <div className="bg-fuchsia-600 p-8 md:w-1/3 flex flex-col justify-center items-center text-white relative overflow-hidden">
+                    <div className="bg-purple-600 p-8 md:w-1/3 flex flex-col justify-center items-center text-white relative overflow-hidden">
                         <div className="absolute inset-0 opacity-20 bg-[url('/images/gallery-1.jpg')] bg-cover bg-center mix-blend-overlay" />
                         <div className="relative z-10 text-center">
                             <span className="text-6xl font-script mb-2 block">07</span>
@@ -25,23 +21,23 @@ export default function Invite() {
                             <span className="text-2xl font-light block mt-2">2025</span>
                         </div>
                         {/* Ticket notch */}
-                        <div className="absolute -right-4 top-1/2 w-8 h-8 bg-fuchsia-50 rounded-full transform -translate-y-1/2 z-20 hidden md:block" />
-                        <div className="absolute -bottom-4 left-1/2 w-8 h-8 bg-fuchsia-50 rounded-full transform -translate-x-1/2 z-20 md:hidden" />
+                        <div className="absolute -right-4 top-1/2 w-8 h-8 bg-purple-50 rounded-full transform -translate-y-1/2 z-20 hidden md:block" />
+                        <div className="absolute -bottom-4 left-1/2 w-8 h-8 bg-purple-50 rounded-full transform -translate-x-1/2 z-20 md:hidden" />
                     </div>
 
                     {/* Right Side - Details */}
                     <div className="p-8 md:w-2/3 flex flex-col justify-center relative">
                         {/* Ticket notch */}
-                        <div className="absolute -left-4 top-1/2 w-8 h-8 bg-fuchsia-50 rounded-full transform -translate-y-1/2 z-20 hidden md:block" />
-                        <div className="absolute -top-4 left-1/2 w-8 h-8 bg-fuchsia-50 rounded-full transform -translate-x-1/2 z-20 md:hidden" />
+                        <div className="absolute -left-4 top-1/2 w-8 h-8 bg-purple-50 rounded-full transform -translate-y-1/2 z-20 hidden md:block" />
+                        <div className="absolute -top-4 left-1/2 w-8 h-8 bg-purple-50 rounded-full transform -translate-x-1/2 z-20 md:hidden" />
 
-                        <h2 className="text-4xl font-script text-fuchsia-800 mb-8 text-center md:text-left mt-4 md:mt-0">
+                        <h2 className="text-4xl font-script text-purple-800 mb-8 text-center md:text-left mt-4 md:mt-0">
                             Você é nosso convidado especial
                         </h2>
 
                         <div className="space-y-6">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-fuchsia-100 rounded-full flex items-center justify-center text-fuchsia-600 shrink-0">
+                                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 shrink-0">
                                     <Clock size={24} />
                                 </div>
                                 <div>
@@ -51,7 +47,7 @@ export default function Invite() {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-fuchsia-100 rounded-full flex items-center justify-center text-fuchsia-600 shrink-0">
+                                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 shrink-0">
                                     <MapPin size={24} />
                                 </div>
                                 <div>
@@ -63,14 +59,14 @@ export default function Invite() {
                         </div>
 
                         <div className="mt-8 pt-6 border-t border-dashed border-gray-200 text-center md:text-left">
-                            <p className="text-fuchsia-600 italic">
+                            <p className="text-purple-600 italic">
                                 "Sua presença é o melhor presente!"
                             </p>
                         </div>
                         <div className="mt-8 flex justify-center">
                             <Button
                                 variant="outline"
-                                className="border-fuchsia-200 text-fuchsia-700 hover:bg-fuchsia-50"
+                                className="border-purple-200 text-purple-700 hover:bg-purple-50"
                                 onClick={() => {
                                     const event = {
                                         title: "Aniversário de 20 Anos da Ingrid",
@@ -89,7 +85,7 @@ export default function Invite() {
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 }

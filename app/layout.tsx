@@ -31,6 +31,7 @@ export const metadata: Metadata = {
         alt: "Convite para festa de 20 anos da Ingrid",
       },
     ],
+    url: baseUrl,
     type: "website",
   },
   twitter: {

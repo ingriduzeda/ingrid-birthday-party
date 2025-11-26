@@ -53,26 +53,26 @@ export default function PersonalizedRSVP({ guest }: PersonalizedRSVPProps) {
     };
 
     return (
-        <section id="rsvp" className="py-16 px-4 bg-gradient-to-br from-fuchsia-50 via-pink-50 to-purple-50">
+        <section id="rsvp" className="py-16 px-4 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50">
             <div className="max-w-2xl mx-auto">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ y: 20 }}
+                    whileInView={{ y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-script text-center text-fuchsia-800 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-script text-center text-purple-800 mb-4">
                         Confirme sua Presença
                     </h2>
                     <p className="text-center text-gray-600 mb-8">
                         {guest.first_name}, adoraríamos contar com você neste dia especial!
                     </p>
 
-                    <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-fuchsia-100">
+                    <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-purple-100">
                         {submitSuccess && (
                             <motion.div
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                initial={{ y: -10 }}
+                                animate={{ y: 0 }}
                                 className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3"
                             >
                                 <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
@@ -86,8 +86,8 @@ export default function PersonalizedRSVP({ guest }: PersonalizedRSVPProps) {
 
                         {submitError && (
                             <motion.div
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                initial={{ y: -10 }}
+                                animate={{ y: 0 }}
                                 className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3"
                             >
                                 <X className="w-5 h-5 text-red-600 flex-shrink-0" />
@@ -140,8 +140,8 @@ export default function PersonalizedRSVP({ guest }: PersonalizedRSVPProps) {
                             {/* Companions Count (only if confirmed) */}
                             {isConfirmed && (
                                 <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: "auto" }}
+                                    initial={{ height: 0 }}
+                                    animate={{ height: "auto" }}
                                     transition={{ duration: 0.3 }}
                                 >
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -153,7 +153,7 @@ export default function PersonalizedRSVP({ guest }: PersonalizedRSVPProps) {
                                         max="10"
                                         value={companionsCount}
                                         onChange={(e) => setCompanionsCount(parseInt(e.target.value) || 0)}
-                                        className="w-full px-4 py-3 rounded-xl border-2 border-fuchsia-200 focus:border-fuchsia-400 focus:outline-none transition-colors"
+                                        className="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-purple-400 focus:outline-none transition-colors"
                                         placeholder="0"
                                     />
                                     <p className="text-sm text-gray-500 mt-1">
@@ -172,7 +172,7 @@ export default function PersonalizedRSVP({ guest }: PersonalizedRSVPProps) {
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     rows={4}
-                                    className="w-full px-4 py-3 rounded-xl border-2 border-fuchsia-200 focus:border-fuchsia-400 focus:outline-none transition-colors resize-none"
+                                    className="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-purple-400 focus:outline-none transition-colors resize-none"
                                     placeholder="Deixe uma mensagem carinhosa para a aniversariante..."
                                 />
                             </div>
@@ -181,7 +181,7 @@ export default function PersonalizedRSVP({ guest }: PersonalizedRSVPProps) {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white py-4 rounded-xl font-medium hover:from-fuchsia-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 rounded-xl font-medium hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
                                 {isSubmitting ? (
                                     <>Enviando...</>

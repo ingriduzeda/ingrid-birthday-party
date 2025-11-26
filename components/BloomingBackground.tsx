@@ -43,7 +43,7 @@ export default function BloomingBackground() {
 
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-50 via-white to-purple-50 opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-purple-50 opacity-80" />
             {petals.map((i) => (
                 <Petal key={i} delay={i * 0.5} />
             ))}
